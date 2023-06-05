@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Recommended">
+      <UniqueIdentifier>{4f7c9087-710d-4531-8eee-3e1ba1e0d4aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC">
+      <UniqueIdentifier>{bc6a2f97-cb4f-44cf-a29c-df6044389aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\257">
+      <UniqueIdentifier>{b72bb511-210f-467d-a90f-98a6bf45ea2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\264">
+      <UniqueIdentifier>{2988f4e3-8159-4fa5-a269-928636a2533b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\266">
+      <UniqueIdentifier>{eab07c33-7344-405c-93e7-bc941fa55483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Library">
+      <UniqueIdentifier>{e5313f48-2010-41ea-a00a-c4f40e77bdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\267">
+      <UniqueIdentifier>{91958d04-7c6c-42f7-865a-cb8dc1215fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\274">
+      <UniqueIdentifier>{5190d1d9-1dfd-4318-a191-dc112f2b5030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\280">
+      <UniqueIdentifier>{82c9df6a-2b81-4ef4-b848-6b33916c530b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Template">
+      <UniqueIdentifier>{a65c0061-79e2-454e-bfc2-19d051de5a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\282">
+      <UniqueIdentifier>{0221538f-d933-46eb-9405-182e4f5c63c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\AHC">
+      <UniqueIdentifier>{6f1a18a0-a8fb-4b5a-b739-a33c5d01f98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\AHC\015">
+      <UniqueIdentifier>{e4300e7e-37f3-4084-a11b-7eb1e6415529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ARC">
+      <UniqueIdentifier>{fdf3a636-6a48-4d77-a65b-8ae16b7b4e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ARC\152">
+      <UniqueIdentifier>{4171bace-af87-4367-a64e-365244bd6918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC\292">
+      <UniqueIdentifier>{e4c15752-5ad5-40bc-912c-6a797060c1b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Recommended\ABC218_F.cpp">
+      <Filter>ソース ファイル\Recommended</Filter>
+    </ClCompile>
+    <ClCompile Include="Recommended\ABC203_E.cpp">
+      <Filter>ソース ファイル\Recommended</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\A.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\B.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\C.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\D.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\E.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\F.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\G.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\257\H.cpp">
+      <Filter>ソース ファイル\ABC\257</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\264\A.cpp">
+      <Filter>ソース ファイル\ABC\264</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\264\B.cpp">
+      <Filter>ソース ファイル\ABC\264</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\264\C.cpp">
+      <Filter>ソース ファイル\ABC\264</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\264\D.cpp">
+      <Filter>ソース ファイル\ABC\264</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\264\E.cpp">
+      <Filter>ソース ファイル\ABC\264</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\A.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\B.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\C.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\D.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\E.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\266\F.cpp">
+      <Filter>ソース ファイル\ABC\266</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\UnionFind.cpp">
+      <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\GraphUtil.cpp">
+      <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\C.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\D.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\E.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\G.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\CaseCalculator.cpp">
+      <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\Ex2.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\274\A.cpp">
+      <Filter>ソース ファイル\ABC\274</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Timer.cpp">
+      <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\267\Ex.cpp">
+      <Filter>ソース ファイル\ABC\267</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\274\B.cpp">
+      <Filter>ソース ファイル\ABC\274</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\274\C.cpp">
+      <Filter>ソース ファイル\ABC\274</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\274\D.cpp">
+      <Filter>ソース ファイル\ABC\274</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\274\E.cpp">
+      <Filter>ソース ファイル\ABC\274</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\280\D.cpp">
+      <Filter>ソース ファイル\ABC\280</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\Template\Template.cpp">
+      <Filter>ソース ファイル\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\280\E.cpp">
+      <Filter>ソース ファイル\ABC\280</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\280\G.cpp">
+      <Filter>ソース ファイル\ABC\280</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\282\D.cpp">
+      <Filter>ソース ファイル\ABC\282</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\282\E.cpp">
+      <Filter>ソース ファイル\ABC\282</Filter>
+    </ClCompile>
+    <ClCompile Include="AHC\015\A.cpp">
+      <Filter>ソース ファイル\AHC\015</Filter>
+    </ClCompile>
+    <ClCompile Include="ARC\152\B.cpp">
+      <Filter>ソース ファイル\ARC\152</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\292\E.cpp">
+      <Filter>ソース ファイル\ABC\292</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\292\F.cpp">
+      <Filter>ソース ファイル\ABC\292</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
