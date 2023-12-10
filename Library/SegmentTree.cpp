@@ -9,21 +9,25 @@ namespace ABC {
 		template <int SIZE, class T>
 		class SegmentTree {
 		private:
-			T tree[SIZE * 4];// サイズは(指定した数以上の2のべき乗)*2-1だけ必要。余裕を持って大きめに確保する
+			T tree[SIZE * 4];// サイズは(指定した数以上の2のべき乗)*2-1だけ必要。これ以上になることはない。
 			T exceptionVal;// 範囲外の値
 			int totalLength;
 			int size;
+
+			typedef void (*MANIPULATOR)(const T& left, const T& right, T& dst);
+			MANIPULATOR integrate;// 統合処理
+
 
 		public:
 
 			// 全要素を更新する
 			void updateAll() {
 				for (int i = totalLength - 2; i >= 0; i--) {
-					tree[i * 2 + 1].getIntegrationWith(tree[i * 2 + 2], tree[i]);
+					integrate(tree[i * 2 + 1], tree[i * 2 + 2], tree[i]);
 				}
 			}
 
-			SegmentTree(T initialVal, T exceptionVal) :size(SIZE) {
+			SegmentTree(T initialVal, T exceptionVal, const MANIPULATOR& integrate) :size(SIZE), integrate(integrate) {
 				totalLength = 1;
 				while (totalLength < size)
 				{
@@ -51,7 +55,7 @@ namespace ABC {
 				while (now > 0)
 				{
 					now = (now - 1) / 2;
-					tree[now * 2 + 1].getIntegrationWith(tree[now * 2 + 2], tree[now]);
+					integrate(tree[now * 2 + 1], tree[now * 2 + 2], tree[now]);
 				}
 			}
 
@@ -96,7 +100,7 @@ namespace ABC {
 					T leftNode, rightNode;
 					Query(leftNode, left, half, i * 2 + 1, top, half);
 					Query(rightNode, half + 1, right, i * 2 + 2, half + 1, last);
-					leftNode.getIntegrationWith(rightNode, dst);
+					integrate(leftNode, rightNode, dst);
 				}
 			}
 
@@ -105,7 +109,7 @@ namespace ABC {
 			/// </summary>
 			/// <param name="left">左端</param>
 			/// <param name="right">右端（境界を含む）</param>
-			void Scan(RollingHash& dst, int left, int right)
+			void Scan(T& dst, int left, int right)
 			{
 				if (left >= size || right < 0 || right < left)
 				{

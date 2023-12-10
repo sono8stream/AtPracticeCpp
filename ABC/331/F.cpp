@@ -36,13 +36,13 @@ namespace ABC {
 		private:
 			static const int BASE_COUNT = 5;
 
-			const long* getMods() const {
+			static const long* getMods() {
 				// 基底は以下をとる。1つの基底につき、ハッシュ値の衝突確率は(1-(N-1))/p（Nは対象の文字列の長さ。pは基底のサイズ）らしい。要勉強。
 				static const long mods[BASE_COUNT] = { 998244353, 1000000007, 1000000009, 1000000021, 1000000033 };
 				return mods;
 			}
 
-			const long* getBases() const {
+			static const long* getBases() {
 				// 念のためアルファベットの個数よりは大きな値としておく。なんでこの数で良いのかは追って勉強。
 				static const long mods[BASE_COUNT] = { 31, 37, 41, 43, 47 };
 				return mods;
@@ -89,13 +89,13 @@ namespace ABC {
 				return res;
 			}
 
-			void getIntegrationWith(const RollingHash& another, RollingHash& dst) const {
+			static void integrate(const RollingHash& left, const RollingHash& right, RollingHash& dst) {
 				const long* mods = getMods();
 				const long* bases = getBases();
 
 				for (int i = 0; i < BASE_COUNT; i++) {
-					dst.leftHashs[i] = (this->leftHashs[i] + another.leftHashs[i] * this->pows[i]) % mods[i];
-					dst.pows[i] = this->pows[i] * another.pows[i] % mods[i];
+					dst.leftHashs[i] = (left.leftHashs[i] + right.leftHashs[i] * left.pows[i]) % mods[i];
+					dst.pows[i] = left.pows[i] * right.pows[i] % mods[i];
 				}
 			}
 		};
@@ -104,21 +104,25 @@ namespace ABC {
 		template <int SIZE, class T>
 		class SegmentTree {
 		private:
-			T tree[SIZE * 4];// サイズは(指定した数以上の2のべき乗)*2-1だけ必要。余裕を持って大きめに確保する
+			T tree[SIZE * 4];// サイズは(指定した数以上の2のべき乗)*2-1だけ必要。これ以上になることはない。
 			T exceptionVal;// 範囲外の値
 			int totalLength;
 			int size;
+
+			typedef void (*MANIPULATOR)(const T& left, const T& right, T& dst);
+			MANIPULATOR integrate;// 統合処理
+
 
 		public:
 
 			// 全要素を更新する
 			void updateAll() {
 				for (int i = totalLength - 2; i >= 0; i--) {
-					tree[i * 2 + 1].getIntegrationWith(tree[i * 2 + 2], tree[i]);
+					integrate(tree[i * 2 + 1], tree[i * 2 + 2], tree[i]);
 				}
 			}
 
-			SegmentTree(T initialVal, T exceptionVal) :size(SIZE) {
+			SegmentTree(T initialVal, T exceptionVal, const MANIPULATOR& integrate) :size(SIZE), integrate(integrate) {
 				totalLength = 1;
 				while (totalLength < size)
 				{
@@ -146,7 +150,7 @@ namespace ABC {
 				while (now > 0)
 				{
 					now = (now - 1) / 2;
-					tree[now * 2 + 1].getIntegrationWith(tree[now * 2 + 2], tree[now]);
+					integrate(tree[now * 2 + 1], tree[now * 2 + 2], tree[now]);
 				}
 			}
 
@@ -191,7 +195,7 @@ namespace ABC {
 					T leftNode, rightNode;
 					Query(leftNode, left, half, i * 2 + 1, top, half);
 					Query(rightNode, half + 1, right, i * 2 + 2, half + 1, last);
-					leftNode.getIntegrationWith(rightNode, dst);
+					integrate(leftNode, rightNode, dst);
 				}
 			}
 
@@ -200,11 +204,11 @@ namespace ABC {
 			/// </summary>
 			/// <param name="left">左端</param>
 			/// <param name="right">右端（境界を含む）</param>
-			void Scan(RollingHash& dst, int left, int right)
+			void Scan(T& dst, int left, int right)
 			{
 				if (left >= size || right < 0 || right < left)
 				{
-					dst=exceptionVal;
+					dst = exceptionVal;
 					return;
 				}
 
@@ -221,8 +225,8 @@ namespace ABC {
 
 			void solve() {
 				// サイズが大きいのでグローバルに確保
-				static SegmentTree<N_MAX, RollingHash> leftTree(RollingHash(1), RollingHash());
-				static SegmentTree<N_MAX, RollingHash> rightTree(RollingHash(1), RollingHash());
+				static SegmentTree<N_MAX, RollingHash> leftTree(RollingHash(1), RollingHash(), RollingHash::integrate);
+				static SegmentTree<N_MAX, RollingHash> rightTree(RollingHash(1), RollingHash(), RollingHash::integrate);
 
 				READ_INT(n);
 				READ_INT(q);
@@ -280,7 +284,7 @@ namespace ABC {
 
 				RollingHash hashF;
 				RollingHash hashG;
-				hashF.getIntegrationWith(hashA, hashG);
+				RollingHash::integrate(hashF, hashA, hashG);
 				if (hashG == hashA)
 				{
 					WRITE_LINE("OK");
@@ -289,7 +293,7 @@ namespace ABC {
 					WRITE_LINE("NG");
 				}
 
-				SegmentTree<2, RollingHash> tree(RollingHash(1), RollingHash());
+				SegmentTree<2, RollingHash> tree(RollingHash(1), RollingHash(),RollingHash::integrate);
 				tree.update(1, RollingHash(2));
 				RollingHash hashH;
 				tree.Scan(hashH, 1, 1);
@@ -304,7 +308,7 @@ namespace ABC {
 				RollingHash hashI;
 				tree.Scan(hashI, 0, 1);
 				RollingHash hashJ;
-				hashA.getIntegrationWith(hashE, hashJ);
+				RollingHash::integrate(hashA, hashE, hashJ);
 				if (hashI == hashJ)
 				{
 					WRITE_LINE("OK");

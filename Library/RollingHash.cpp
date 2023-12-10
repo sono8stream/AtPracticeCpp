@@ -10,13 +10,13 @@ namespace ABC {
 		private:
 			static const int BASE_COUNT = 5;
 
-			const long* getMods() {
+			static const long* getMods() {
 				// 基底は以下をとる。1つの基底につき、ハッシュ値の衝突確率は(1-(N-1))/p（Nは対象の文字列の長さ。pは基底のサイズ）らしい。要勉強。
 				static const long mods[BASE_COUNT] = { 998244353, 1000000007, 1000000009, 1000000021, 1000000033 };
 				return mods;
 			}
 
-			const long* getBases() {
+			static const long* getBases() {
 				// 念のためアルファベットの個数よりは大きな値としておく。なんでこの数で良いのかは追って勉強。
 				static const long mods[BASE_COUNT] = { 31, 37, 41, 43, 47 };
 				return mods;
@@ -63,17 +63,14 @@ namespace ABC {
 				return res;
 			}
 
-			RollingHash integrate(const RollingHash& another) {
+			static void integrate(const RollingHash& left, const RollingHash& right, RollingHash& dst) {
 				const long* mods = getMods();
 				const long* bases = getBases();
 
-				RollingHash res;
 				for (int i = 0; i < BASE_COUNT; i++) {
-					res.leftHashs[i] = (this->leftHashs[i] + another.leftHashs[i] * this->pows[i]) % mods[i];
-					res.pows[i] = this->pows[i] * another.pows[i] % mods[i];
+					dst.leftHashs[i] = (left.leftHashs[i] + right.leftHashs[i] * left.pows[i]) % mods[i];
+					dst.pows[i] = left.pows[i] * right.pows[i] % mods[i];
 				}
-
-				return res;
 			}
 		};
 	}
