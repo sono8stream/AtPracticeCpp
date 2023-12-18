@@ -64,6 +64,9 @@
     <Filter Include="ソース ファイル\ABC\331">
       <UniqueIdentifier>{82504747-5a33-4a8a-ae97-1e54d420cee8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ABC\332">
+      <UniqueIdentifier>{5fc7a66b-87ff-45dc-905d-6219ef835a5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Recommended\ABC218_F.cpp">
@@ -218,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="Library\RollingHash.cpp">
       <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\332\D.cpp">
+      <Filter>ソース ファイル\ABC\332</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC\332\F.cpp">
+      <Filter>ソース ファイル\ABC\332</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

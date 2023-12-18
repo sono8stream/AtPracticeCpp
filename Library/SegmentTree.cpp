@@ -12,7 +12,6 @@ namespace ABC {
 			T tree[SIZE * 4];// サイズは(指定した数以上の2のべき乗)*2-1だけ必要。これ以上になることはない。
 			T exceptionVal;// 範囲外の値
 			int totalLength;
-			int size;
 
 			typedef void (*MANIPULATOR)(const T& left, const T& right, T& dst);
 			MANIPULATOR integrate;// 統合処理
@@ -27,9 +26,9 @@ namespace ABC {
 				}
 			}
 
-			SegmentTree(T initialVal, T exceptionVal, const MANIPULATOR& integrate) :size(SIZE), integrate(integrate) {
+			SegmentTree(T initialVal, T exceptionVal, const MANIPULATOR& integrate) :integrate(integrate) {
 				totalLength = 1;
-				while (totalLength < size)
+				while (totalLength < SIZE)
 				{
 					totalLength *= 2;
 				}
@@ -111,7 +110,7 @@ namespace ABC {
 			/// <param name="right">右端（境界を含む）</param>
 			void Scan(T& dst, int left, int right)
 			{
-				if (left >= size || right < 0 || right < left)
+				if (left >= SIZE || right < 0 || right < left)
 				{
 					dst = exceptionVal;
 					return;

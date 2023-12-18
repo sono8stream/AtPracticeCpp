@@ -112,15 +112,14 @@ namespace ABC {
 			typedef void (*MANIPULATOR)(const T& left, const T& right, T& dst);
 			MANIPULATOR integrate;// 統合処理
 
-
-		public:
-
 			// 全要素を更新する
 			void updateAll() {
 				for (int i = totalLength - 2; i >= 0; i--) {
 					integrate(tree[i * 2 + 1], tree[i * 2 + 2], tree[i]);
 				}
 			}
+
+		public:
 
 			SegmentTree(T initialVal, T exceptionVal, const MANIPULATOR& integrate) :size(SIZE), integrate(integrate) {
 				totalLength = 1;
